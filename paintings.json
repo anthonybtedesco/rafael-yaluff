@@ -1,0 +1,109 @@
+{
+  "paintings": [
+    {
+      "id": "academic-rite",
+      "title": "Academic Rite",
+      "year": "2023",
+      "description": "A powerful exploration of academic traditions and their impact on creative expression.",
+      "image": "images/Rafael Yaluff - Academic Rite.jpg"
+    },
+    {
+      "id": "gardener",
+      "title": "Gardener",
+      "year": "2019",
+      "description": "A vibrant study of human connection with nature and the nurturing spirit.",
+      "image": "images/Rafael Yaluff_Gardener_2019_Oil and acrylic on canvas_67x67in.jpg"
+    },
+    {
+      "id": "hide-it-under-your-tongue",
+      "title": "Hide it under your tongue",
+      "year": "2021",
+      "description": "An intimate portrayal of secrets and unspoken truths in modern society.",
+      "image": "images/Hide it under your tongue - Rafael Yaluff.jpg"
+    },
+    {
+      "id": "traffic-light-and-birthing",
+      "title": "Traffic light & birthing",
+      "year": "2022",
+      "description": "A juxtaposition of urban life against the primal experience of creation.",
+      "image": "images/Rafael Yaluff - Traffic light & birthing .jpg"
+    },
+    {
+      "id": "kingdom",
+      "title": "Kingdom",
+      "year": "2020",
+      "description": "A bold examination of power structures and personal sovereignty.",
+      "image": "images/Rafael Yaluff - Kingdom.jpg"
+    },
+    {
+      "id": "phil-and-me-yes-rally",
+      "title": "Phil and me in the Yes rally in 1988",
+      "year": "2018",
+      "description": "A nostalgic reflection on political activism and personal history.",
+      "image": "images/Rafael Yaluff - Phil and me in the Yes rally in 1988 .jpg"
+    },
+    {
+      "id": "pregnant-anna",
+      "title": "Pregnant Anna",
+      "year": "2023", 
+      "description": "A tender portrait capturing the sacred moment of expectant motherhood.",
+      "image": "images/Rafael Yaluff_Pregnant Anna_2023_Oil on canvas_66x85in.jpg"
+    },
+    {
+      "id": "the-house-that-raf-built",
+      "title": "The house that Raf built",
+      "year": "2021",
+      "description": "An architectural metaphor for personal identity and creative legacy.",
+      "image": "images/Rafael Yaluff - The house that Raf built.jpg"
+    },
+    {
+      "id": "latinamerican-ghosts",
+      "title": "Latinamerican ghosts",
+      "year": "2021",
+      "description": "A haunting meditation on historical memory and cultural inheritance in Latin America.",
+      "image": "images/Latinamerican ghosts - Rafael Yaluff.jpg"
+    },
+    {
+      "id": "moving-job",
+      "title": "Moving Job",
+      "year": "2020",
+      "description": "A dynamic representation of labor, transition, and physical burden.",
+      "image": "images/Moving Job - Rafael Yaluff.jpg"
+    },
+    {
+      "id": "lumpenproletariat",
+      "title": "Lumpenproletariat",
+      "year": "2022",
+      "description": "A visceral depiction of social class struggle and marginalized identities.",
+      "image": "images/Lumpenproletariat - Rafael Yaluff.jpg"
+    },
+    {
+      "id": "alien-flag",
+      "title": "Alien Flag",
+      "year": "2021",
+      "description": "An otherworldly symbol exploring themes of belonging and foreign identity.",
+      "image": "images/Rafael Yaluff_Alien Flag_2021_Oil and acrylic on canvas_66x85in.jpg"
+    },
+    {
+      "id": "your-momentum-friend",
+      "title": "Your momentum friend",
+      "year": "2022",
+      "description": "A kinetic study of friendship and the forces that propel human connections.",
+      "image": "images/Your momentum friend - Rafael Yaluff.jpg"
+    },
+    {
+      "id": "promises-of-silence",
+      "title": "Promises of silence",
+      "year": "2022",
+      "description": "A contemplative work examining the unspoken agreements between individuals.",
+      "image": "images/Rafael Yaluff - Promises of silence.jpg"
+    },
+    {
+      "id": "sm-map",
+      "title": "Mapa sadomasoquista",
+      "year": "2022",
+      "description": "A provocative cartography of desire and power dynamics in human relationships.",
+      "image": "images/Rafael Yaluff SM MAP RAFAEL YALUFF copy.jpg"
+    }
+  ]
+} 
