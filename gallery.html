@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rafael Yaluff - Gallery</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="images/favicon.jpg" type="image/jpeg">
     <style>
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-gap: 20px;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 40px;
             margin-bottom: 40px;
         }
         
@@ -28,7 +29,7 @@
         .gallery-item {
             position: relative;
             overflow: hidden;
-            aspect-ratio: 1 / 1;
+            aspect-ratio: auto;
             border: 1px solid var(--light-gray);
             transition: transform 0.3s ease;
         }
@@ -40,7 +41,7 @@
         
         .gallery-item img {
             width: 100%;
-            height: 100%;
+            height: auto;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
@@ -256,14 +257,19 @@
     <!-- Gallery scripts -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Load all paintings from the images directory
+        // Load paintings from JSON file
         function loadGallery() {
             fetch('paintings.json')
-                .then(response => response.json())
-                .then(data => {
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(paintingsData => {
                     const galleryGrid = document.getElementById('painting-grid');
                     
-                    data.paintings.forEach(painting => {
+                    paintingsData.paintings.forEach(function(painting) {
                         // Create gallery item
                         const galleryItem = document.createElement('div');
                         galleryItem.className = 'gallery-item';
@@ -302,7 +308,10 @@
                         galleryGrid.appendChild(link);
                     });
                 })
-                .catch(error => console.error('Error loading paintings:', error));
+                .catch(error => {
+                    console.error('Error loading gallery data:', error);
+                    document.getElementById('painting-grid').innerHTML = '<p>Error loading gallery. Please try again later.</p>';
+                });
         }
         
         // Call the function to load the gallery

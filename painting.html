@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="painting-title">Painting | Rafael Yaluff</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="images/favicon.jpg" type="image/jpeg">
     <style>
         .fullscreen-btn {
             position: absolute;
@@ -153,6 +154,91 @@
         .painting-info-overlay p {
             margin: 10px 0;
         }
+
+        /* Navigation buttons styles */
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.3);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            z-index: 10;
+            transition: background 0.3s ease;
+        }
+        
+        .nav-button:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+        
+        .nav-prev {
+            left: 20px;
+        }
+        
+        .nav-next {
+            right: 20px;
+        }
+
+        .fullscreen-nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.3);
+            border: 2px solid white;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 36px;
+            z-index: 1001;
+            transition: all 0.2s ease;
+        }
+        
+        .fullscreen-nav-button:hover {
+            background: rgba(255, 255, 255, 0.5);
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .fullscreen-nav-prev {
+            left: 20px;
+        }
+        
+        .fullscreen-nav-next {
+            right: 20px;
+        }
+
+        /* Swipe indicator */
+        .swipe-indicator {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            display: none;
+            z-index: 1001;
+        }
+
+        @media (max-width: 768px) {
+            .swipe-indicator {
+                display: block;
+            }
+        }
     </style>
 </head>
 <body>
@@ -170,6 +256,8 @@
                             <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
                         </svg>
                     </button>
+                    <!-- <button class="nav-button nav-prev" onclick="navigatePainting('prev')">❮</button>
+                    <button class="nav-button nav-next" onclick="navigatePainting('next')">❯</button> -->
                 </div>
                 <div class="painting-info">
                     <h2 id="painting-title-heading"></h2>
@@ -200,9 +288,12 @@
     <div class="fullscreen-view" id="fullscreen-view">
         <button class="exit-fullscreen" onclick="closeFullscreen()">×</button>
         <button class="info-fullscreen" onclick="toggleInfoOverlay()">i</button>
+        <!-- <button class="fullscreen-nav-button fullscreen-nav-prev" onclick="navigatePainting('prev')">❮</button>
+        <button class="fullscreen-nav-button fullscreen-nav-next" onclick="navigatePainting('next')">❯</button> -->
         <div class="image-container" id="zoomable-container">
             <img id="fullscreen-img" src="" alt="">
         </div>
+        <div class="swipe-indicator">Swipe left or right to navigate</div>
         <div class="painting-info-overlay" id="painting-info-overlay">
             <h2 id="overlay-painting-title"></h2>
             <p id="overlay-painting-year"></p>
@@ -211,6 +302,10 @@
     </div>
 
     <script>
+    // Global variables for painting data
+    let allPaintings = [];
+    let currentPaintingIndex = 0;
+
     function toggleMobileMenu() {
         // This function is no longer needed but kept for compatibility
     }
@@ -233,33 +328,120 @@
         fetch('paintings.json')
             .then(response => response.json())
             .then(data => {
-                const painting = data.paintings.find(p => p.id === paintingId);
-
-                console.log("Painting", painting)
+                // Store all paintings
+                allPaintings = data.paintings;
                 
-                // Update page with painting data
-                document.title = `${painting.title} | Rafael Yaluff`;
-                document.getElementById('painting-title-heading').textContent = painting.title;
-                document.getElementById('painting-year').textContent = painting.year;
-                document.getElementById('painting-description').textContent = painting.description;
+                // Find current painting index
+                currentPaintingIndex = allPaintings.findIndex(p => p.id === paintingId);
                 
-                const img = document.getElementById('painting-img');
-                img.src = painting.image;
-                img.alt = painting.title;
-
-                // Also set the fullscreen image
-                document.getElementById('fullscreen-img').src = painting.image;
-                document.getElementById('fullscreen-img').alt = painting.title;
+                if (currentPaintingIndex === -1) {
+                    currentPaintingIndex = 0; // Default to first painting if ID not found
+                }
                 
-                // Set the overlay information
-                document.getElementById('overlay-painting-title').textContent = painting.title;
-                document.getElementById('overlay-painting-year').textContent = painting.year;
-                document.getElementById('overlay-painting-description').textContent = painting.description;
+                displayCurrentPainting();
+                setupNavigationListeners();
             })
             .catch(error => {
                 console.error('Error loading painting data:', error);
                 window.location.href = 'index.html';
             });
+    }
+
+    // Display the current painting
+    function displayCurrentPainting() {
+        const painting = allPaintings[currentPaintingIndex];
+        
+        // Update URL without refreshing the page
+        const newUrl = `painting.html?id=${painting.id}`;
+        history.pushState({ paintingId: painting.id }, '', newUrl);
+        
+        // Update page with painting data
+        document.title = `${painting.title} | Rafael Yaluff`;
+        document.getElementById('painting-title-heading').textContent = painting.title;
+        document.getElementById('painting-year').textContent = painting.year;
+        document.getElementById('painting-description').textContent = painting.description;
+        
+        const img = document.getElementById('painting-img');
+        img.src = painting.image;
+        img.alt = painting.title;
+
+        // Also set the fullscreen image
+        document.getElementById('fullscreen-img').src = painting.image;
+        document.getElementById('fullscreen-img').alt = painting.title;
+        
+        // Set the overlay information
+        document.getElementById('overlay-painting-title').textContent = painting.title;
+        document.getElementById('overlay-painting-year').textContent = painting.year;
+        document.getElementById('overlay-painting-description').textContent = painting.description;
+        
+        // Reset zoom when changing paintings
+        resetZoom();
+    }
+
+    // Navigate to previous or next painting
+    function navigatePainting(direction) {
+        if (direction === 'prev') {
+            currentPaintingIndex = (currentPaintingIndex - 1 + allPaintings.length) % allPaintings.length;
+        } else if (direction === 'next') {
+            currentPaintingIndex = (currentPaintingIndex + 1) % allPaintings.length;
+        }
+        
+        displayCurrentPainting();
+    }
+
+    // Setup keyboard navigation and swipe listeners
+    function setupNavigationListeners() {
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft') {
+                navigatePainting('prev');
+            } else if (event.key === 'ArrowRight') {
+                navigatePainting('next');
+            }
+        });
+        
+        // Touch swipe navigation
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const minSwipeDistance = 50;
+        
+        // Main container swipe
+        const mainContainer = document.querySelector('.painting-container');
+        mainContainer.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }, false);
+        
+        mainContainer.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, false);
+        
+        // Fullscreen swipe (only when not zoomed in)
+        const fullscreenContainer = document.getElementById('fullscreen-view');
+        fullscreenContainer.addEventListener('touchstart', function(e) {
+            if (currentScale === 1) { // Only enable swipe when not zoomed in
+                touchStartX = e.changedTouches[0].screenX;
+            }
+        }, false);
+        
+        fullscreenContainer.addEventListener('touchend', function(e) {
+            if (currentScale === 1) { // Only process swipe when not zoomed in
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }
+        }, false);
+        
+        function handleSwipe() {
+            const swipeDistance = touchEndX - touchStartX;
+            
+            if (swipeDistance > minSwipeDistance) {
+                // Swiped right - go to previous
+                navigatePainting('prev');
+            } else if (swipeDistance < -minSwipeDistance) {
+                // Swiped left - go to next
+                navigatePainting('next');
+            }
+        }
     }
 
     // Fullscreen functions
@@ -472,6 +654,18 @@
         const infoOverlay = document.getElementById('painting-info-overlay');
         infoOverlay.classList.toggle('active');
     }
+
+    // Handle back/forward browser navigation
+    window.addEventListener('popstate', function(event) {
+        if (event.state && event.state.paintingId) {
+            const paintingId = event.state.paintingId;
+            currentPaintingIndex = allPaintings.findIndex(p => p.id === paintingId);
+            if (currentPaintingIndex === -1) {
+                currentPaintingIndex = 0;
+            }
+            displayCurrentPainting();
+        }
+    });
 
     // Initialize
     document.addEventListener('DOMContentLoaded', loadPaintingData);
