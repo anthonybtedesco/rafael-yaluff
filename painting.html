@@ -262,6 +262,8 @@
                 <div class="painting-info">
                     <h2 id="painting-title-heading"></h2>
                     <p class="painting-year" id="painting-year"></p>
+                    <p class="painting-medium" id="painting-medium"></p>
+                    <p class="painting-dimensions" id="painting-dimensions"></p>
                     <div class="painting-description" id="painting-description"></div>
                 </div>
             </div>
@@ -297,6 +299,8 @@
         <div class="painting-info-overlay" id="painting-info-overlay">
             <h2 id="overlay-painting-title"></h2>
             <p id="overlay-painting-year"></p>
+            <p id="overlay-painting-medium"></p>
+            <p id="overlay-painting-dimensions"></p>
             <p id="overlay-painting-description"></p>
         </div>
     </div>
@@ -359,6 +363,8 @@
         document.title = `${painting.title} | Rafael Yaluff`;
         document.getElementById('painting-title-heading').textContent = painting.title;
         document.getElementById('painting-year').textContent = painting.year;
+        document.getElementById('painting-medium').textContent = painting.medium;
+        document.getElementById('painting-dimensions').textContent = painting.dimensions;
         document.getElementById('painting-description').textContent = painting.description;
         
         const img = document.getElementById('painting-img');
@@ -372,6 +378,8 @@
         // Set the overlay information
         document.getElementById('overlay-painting-title').textContent = painting.title;
         document.getElementById('overlay-painting-year').textContent = painting.year;
+        document.getElementById('overlay-painting-medium').textContent = painting.medium;
+        document.getElementById('overlay-painting-dimensions').textContent = painting.dimensions;
         document.getElementById('overlay-painting-description').textContent = painting.description;
         
         // Reset zoom when changing paintings
