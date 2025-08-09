@@ -129,6 +129,7 @@
             border: 1px solid #333;
             background-color: rgba(0, 0, 0, 0.5);
             transition: all 0.3s ease;
+            text-align: left;
         }
         
         .exhibition-item:hover {
@@ -275,32 +276,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Load exhibitions from JSON file
-            console.log("loading exhibitions");
-            fetch('exhibitions.json')
-                .then(response => response.json())
-                .then(data => {
-                    const exhibitionList = document.getElementById('exhibitionList');
-                    
-                    data.exhibitions.forEach(exhibition => {
-                        const exhibitionItem = document.createElement('div');
-                        exhibitionItem.className = 'exhibition-item';
-                        
-                        exhibitionItem.innerHTML = `
-                            <h4>${exhibition.title}</h4>
-                            <p><strong>Type:</strong> ${exhibition.Type}</p>
-                            <p><strong>Year:</strong> ${exhibition.Year}</p>
-                            <p><strong>Venue:</strong> ${exhibition.Venue}</p>
-                        `;
-                        
-                        exhibitionList.appendChild(exhibitionItem);
-                        console.log("added exhibition", exhibition);
-                    });
-                })
-                .catch(error => {
-                    console.error('Error loading exhibitions:', error);
-                    const exhibitionList = document.getElementById('exhibitionList');
-                    exhibitionList.innerHTML = '<p>Error loading exhibitions. Please try again later.</p>';
-                });
+         
         });
     </script>
 </body>
