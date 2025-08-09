@@ -44,32 +44,7 @@
             width: 100%;
         }
         
-        .exhibition-item {
-            border: 1px solid #333;
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 20px;
-            /* text-align: center; */
-            transition: all 0.3s ease;
-            border-radius: 4px;
-        }
-        
-        
-        .exhibition-item h4 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
-        
-        .exhibition-item p {
-            margin: 5px 0;
-            font-size: 1rem;
-        }
-        
-        .exhibition-controls {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
+       
     </style>
 </head>
 <body>
@@ -249,10 +224,13 @@ function populateExhibitions(){
                         exhibitionItem.className = 'exhibition-item';
                         
                         exhibitionItem.innerHTML = `
-                            <h4>${exhibition.title}</h4>
-                            <p><strong>Type:</strong> ${exhibition.Type}</p>
-                            <p><strong>Year:</strong> ${exhibition.Year}</p>
-                            <p><strong>Venue:</strong> ${exhibition.Venue}</p>
+                            <div class="exhibition-content">
+                                <h4>${exhibition.title}</h4>
+                                <p><strong>Type:</strong> ${exhibition.Type}</p>
+                                <p><strong>Year:</strong> ${exhibition.Year}</p>
+                                <p><strong>Venue:</strong> ${exhibition.Venue}</p>
+                            </div>
+                            <img src="${exhibition.image}" alt="${exhibition.title}" class="exhibition-thumbnail">
                         `;
                         
                         exhibitionList.appendChild(exhibitionItem);
