@@ -4,121 +4,141 @@
             "title": "The New Pop Chilean Song",
             "Type": "Solo show",
             "Year": "2024",
-            "Venue": "Colexion 33"
+            "Venue": "Colexion 33",
+            "image": "images/exhibition-thumbnails/new-pop-chilean-song.jpg"
         },
         {
             "title": "The Immigrant Artist Biennial",
             "Type": "Group show",
             "Year": "2023 - 24",
-            "Venue": "EFA Project space - New York (US)"
+            "Venue": "EFA Project space - New York (US)",
+            "image": "images/Rafael Yaluff - Kingdom.jpg"
         },
         {
             "title": "Worms, a good business model",
             "Type": "Group show",
             "Year": "2023",
-            "Venue": "Thesis show, Hunter College MFA. Hudson Gallery - New York (US)"
+            "Venue": "Thesis show, Hunter College MFA. Hudson Gallery - New York (US)",
+            "image": "images/exhibitions/JOEY FULL ME WITH FLOWERS CROPPED.jpg"
         },
         {
             "title": "Chilean Connection",
             "Type": "Group show",
             "Year": "2022",
-            "Venue": "MONOPOL - Berlin (DE)"
+            "Venue": "MONOPOL - Berlin (DE)",
+            "image": "images/exhibition-thumbnails/chilean-connection.jpg"
         },
         {
             "title": "Beauty at the Swamp's Center",
             "Type": "Group show",
             "Year": "2021",
-            "Venue": "Hunter College MFA - New York (US)"
+            "Venue": "Hunter College MFA - New York (US)",
+            "image": "images/exhibition-thumbnails/beauty-swamp-center.jpg"
         },
         {
             "title": "Hallway Paraphiliacs",
             "Type": "Group show with photographer Martin Parsekian",
             "Year": "2019",
-            "Venue": "91 Dobbin - New York (US)"
+            "Venue": "91 Dobbin - New York (US)",
+            "image": "images/exhibition-thumbnails/hallway-paraphiliacs.jpg"
         },
         {
             "title": "Prayers",
             "Type": "Individual Show",
             "Year": "2019 - 2020",
-            "Venue": "Corkin Gallery - Toronto (CA)"
+            "Venue": "Corkin Gallery - Toronto (CA)",
+            "image": "images/exhibition-thumbnails/prayers.jpg"
         },
         {
             "title": "Karaoke",
             "Type": "Group show with artist Tiago Madaleno",
             "Year": "2018",
-            "Venue": "Otiima Artworks - Porto (PT)"
+            "Venue": "Otiima Artworks - Porto (PT)",
+            "image": "images/exhibition-thumbnails/karaoke.jpg"
         },
         {
             "title": "The Blue Mask",
             "Type": "Individual show",
             "Year": "2017",
-            "Venue": "Hashtag Gallery - Toronto (CA)"
+            "Venue": "Hashtag Gallery - Toronto (CA)",
+            "image": "images/exhibition-thumbnails/blue-mask.jpg"
         },
         {
             "title": "Rainforests",
             "Type": "Individual show",
             "Year": "2015",
-            "Venue": "Columbus Centre - Toronto (CA)"
+            "Venue": "Columbus Centre - Toronto (CA)",
+            "image": "images/exhibition-thumbnails/rainforests.jpg"
         },
         {
             "title": "MAVI & Minera Escondida prize: Young Contemporary Art",
             "Type": "Collective show",
             "Year": "2015",
-            "Venue": "Visual Arts Museum MAVI - Santiago (CL)"
+            "Venue": "Visual Arts Museum MAVI - Santiago (CL)",
+            "image": "images/exhibition-thumbnails/mavi-prize.jpg"
         },
         {
             "title": "One More Year of Humor, and Then I'll Talk About War",
             "Type": "Individual show",
             "Year": "2014",
-            "Venue": "Madhaus Gallery - Santiago (CL)"
+            "Venue": "Madhaus Gallery - Santiago (CL)",
+            "image": "images/exhibition-thumbnails/humor-war.jpg"
         },
         {
             "title": "Pan/orama",
             "Type": "Collective show",
             "Year": "2014",
-            "Venue": "Daniels Spectrum Centre - Toronto (CA)"
+            "Venue": "Daniels Spectrum Centre - Toronto (CA)",
+            "image": "images/exhibition-thumbnails/panorama.jpg"
         },
         {
             "title": "The Sun",
             "Type": "Individual show",
             "Year": "2014",
-            "Venue": "TORP Inc. Showroom - Toronto (CA)"
+            "Venue": "TORP Inc. Showroom - Toronto (CA)",
+            "image": "images/exhibition-thumbnails/sun.jpg"
         },
         {
             "title": "Wild Trash",
             "Type": "Individual show",
             "Year": "2013",
-            "Venue": "Local Arte Contemporáneo - Santiago (CL)"
+            "Venue": "Local Arte Contemporáneo - Santiago (CL)",
+            "image": "images/exhibition-thumbnails/wild-trash.jpg"
         },
         {
             "title": "Forårsudstilling 13: Spring Exhibition 13",
             "Type": "Collective show",
             "Year": "2013",
-            "Venue": "Kunsthal Charlottenborg - Copenhagen (DK)"
+            "Venue": "Kunsthal Charlottenborg - Copenhagen (DK)",
+            "image": "images/exhibition-thumbnails/spring-exhibition.jpg"
         },
         {
             "title": "Paintings of the Chilean Patagonian Rainforest, Plein Air and in Big Format",
             "Type": "Individual show",
             "Year": "2012",
-            "Venue": "MACCHINA Gallery - Santiago (CL)"
+            "Venue": "MACCHINA Gallery - Santiago (CL)",
+            "image": "images/exhibition-thumbnails/patagonian-rainforest.jpg"
         },
         {
             "title": "Paintings of the Chilean Forest",
             "Type": "Individual show",
             "Year": "2012",
-            "Venue": "Citi Gallery - Santiago (CL)"
+            "Venue": "Citi Gallery - Santiago (CL)",
+            "image": "images/exhibition-thumbnails/chilean-forest.jpg"
         },
         {
             "title": "Funkhaus Colective",
             "Type": "Collective show",
             "Year": "2011",
-            "Venue": "Funkhaus Berlin - Berlin (DE)"
+            "Venue": "Funkhaus Berlin - Berlin (DE)",
+            "image": "images/exhibition-thumbnails/funkhaus.jpg"
         },
         {
             "title": "Phenomenological Investigations, on the Impressionist Method of Claude Monet",
             "Type": "Individual show",
             "Year": "2011",
-            "Venue": "Loreto Gallery - Santiago (CL)"
+            "Venue": "Loreto Gallery - Santiago (CL)",
+            "image": "images/exhibition-thumbnails/monet-investigations.jpg"
         }
     ]
 }

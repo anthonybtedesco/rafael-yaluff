@@ -122,6 +122,15 @@
         </div>
     </div>
 
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+            <img id="lightbox-image" class="lightbox-image" src="" alt="">
+            <div id="lightbox-caption" class="lightbox-caption"></div>
+        </div>
+    </div>
+
     <script>
     function toggleMobileMenu() {
         // This function is no longer needed but kept for compatibility
@@ -230,7 +239,7 @@ function populateExhibitions(){
                                 <p><strong>Year:</strong> ${exhibition.Year}</p>
                                 <p><strong>Venue:</strong> ${exhibition.Venue}</p>
                             </div>
-                            <img src="${exhibition.image}" alt="${exhibition.title}" class="exhibition-thumbnail">
+                            <img src="${exhibition.image}" alt="${exhibition.title}" class="exhibition-thumbnail" onclick="openLightbox('${exhibition.image}', '${exhibition.title}')">
                         `;
                         
                         exhibitionList.appendChild(exhibitionItem);
@@ -242,6 +251,26 @@ function populateExhibitions(){
                     const exhibitionList = document.getElementById('exhibitionList');
                     exhibitionList.innerHTML = '<p>Error loading exhibitions. Please try again later.</p>';
                 });
+}
+
+// Lightbox functions
+function openLightbox(imageSrc, caption) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    
+    lightboxImage.src = imageSrc;
+    lightboxImage.alt = caption;
+    lightboxCaption.textContent = caption;
+    
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
 }
     // About Modal Functions
     function openAboutModal() {
@@ -273,6 +302,7 @@ function populateExhibitions(){
     document.addEventListener('keydown', function(event) {
         const presentationMode = document.getElementById('presentation-mode');
         const aboutModal = document.getElementById('aboutModal');
+        const lightbox = document.getElementById('lightbox');
         
         if (presentationMode.classList.contains('active')) {
             if (event.key === 'Escape') {
@@ -286,6 +316,17 @@ function populateExhibitions(){
             if (event.key === 'Escape') {
                 closeAboutModal();
             }
+        } else if (lightbox.classList.contains('active')) {
+            if (event.key === 'Escape') {
+                closeLightbox();
+            }
+        }
+    });
+
+    // Click outside lightbox to close
+    document.getElementById('lightbox').addEventListener('click', function(event) {
+        if (event.target === this) {
+            closeLightbox();
         }
     });
 
