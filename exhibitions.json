@@ -1,0 +1,124 @@
+{
+    "exhibitions": [
+        {
+            "title": "The New Pop Chilean Song",
+            "Type": "Solo show",
+            "Year": "2024",
+            "Venue": "Colexion 33"
+        },
+        {
+            "title": "The Immigrant Artist Biennial",
+            "Type": "Group show",
+            "Year": "2023 - 24",
+            "Venue": "EFA Project space - New York (US)"
+        },
+        {
+            "title": "Worms, a good business model",
+            "Type": "Group show",
+            "Year": "2023",
+            "Venue": "Thesis show, Hunter College MFA. Hudson Gallery - New York (US)"
+        },
+        {
+            "title": "Chilean Connection",
+            "Type": "Group show",
+            "Year": "2022",
+            "Venue": "MONOPOL - Berlin (DE)"
+        },
+        {
+            "title": "Beauty at the Swamp's Center",
+            "Type": "Group show",
+            "Year": "2021",
+            "Venue": "Hunter College MFA - New York (US)"
+        },
+        {
+            "title": "Hallway Paraphiliacs",
+            "Type": "Group show with photographer Martin Parsekian",
+            "Year": "2019",
+            "Venue": "91 Dobbin - New York (US)"
+        },
+        {
+            "title": "Prayers",
+            "Type": "Individual Show",
+            "Year": "2019 - 2020",
+            "Venue": "Corkin Gallery - Toronto (CA)"
+        },
+        {
+            "title": "Karaoke",
+            "Type": "Group show with artist Tiago Madaleno",
+            "Year": "2018",
+            "Venue": "Otiima Artworks - Porto (PT)"
+        },
+        {
+            "title": "The Blue Mask",
+            "Type": "Individual show",
+            "Year": "2017",
+            "Venue": "Hashtag Gallery - Toronto (CA)"
+        },
+        {
+            "title": "Rainforests",
+            "Type": "Individual show",
+            "Year": "2015",
+            "Venue": "Columbus Centre - Toronto (CA)"
+        },
+        {
+            "title": "MAVI & Minera Escondida prize: Young Contemporary Art",
+            "Type": "Collective show",
+            "Year": "2015",
+            "Venue": "Visual Arts Museum MAVI - Santiago (CL)"
+        },
+        {
+            "title": "One More Year of Humor, and Then I'll Talk About War",
+            "Type": "Individual show",
+            "Year": "2014",
+            "Venue": "Madhaus Gallery - Santiago (CL)"
+        },
+        {
+            "title": "Pan/orama",
+            "Type": "Collective show",
+            "Year": "2014",
+            "Venue": "Daniels Spectrum Centre - Toronto (CA)"
+        },
+        {
+            "title": "The Sun",
+            "Type": "Individual show",
+            "Year": "2014",
+            "Venue": "TORP Inc. Showroom - Toronto (CA)"
+        },
+        {
+            "title": "Wild Trash",
+            "Type": "Individual show",
+            "Year": "2013",
+            "Venue": "Local Arte Contemporáneo - Santiago (CL)"
+        },
+        {
+            "title": "Forårsudstilling 13: Spring Exhibition 13",
+            "Type": "Collective show",
+            "Year": "2013",
+            "Venue": "Kunsthal Charlottenborg - Copenhagen (DK)"
+        },
+        {
+            "title": "Paintings of the Chilean Patagonian Rainforest, Plein Air and in Big Format",
+            "Type": "Individual show",
+            "Year": "2012",
+            "Venue": "MACCHINA Gallery - Santiago (CL)"
+        },
+        {
+            "title": "Paintings of the Chilean Forest",
+            "Type": "Individual show",
+            "Year": "2012",
+            "Venue": "Citi Gallery - Santiago (CL)"
+        },
+        {
+            "title": "Funkhaus Colective",
+            "Type": "Collective show",
+            "Year": "2011",
+            "Venue": "Funkhaus Berlin - Berlin (DE)"
+        },
+        {
+            "title": "Phenomenological Investigations, on the Impressionist Method of Claude Monet",
+            "Type": "Individual show",
+            "Year": "2011",
+            "Venue": "Loreto Gallery - Santiago (CL)"
+        }
+    ]
+}

@@ -241,6 +241,34 @@
         showSlide(currentSlide + direction);
     }
 
+function populateExhibitions(){
+    console.log("loading exhibitions");
+            fetch('exhibitions.json')
+                .then(response => response.json())
+                .then(data => {
+                    const exhibitionList = document.getElementById('exhibitionList');
+                    
+                    data.exhibitions.forEach(exhibition => {
+                        const exhibitionItem = document.createElement('div');
+                        exhibitionItem.className = 'exhibition-item';
+                        
+                        exhibitionItem.innerHTML = `
+                            <h4>${exhibition.title}</h4>
+                            <p><strong>Type:</strong> ${exhibition.Type}</p>
+                            <p><strong>Year:</strong> ${exhibition.Year}</p>
+                            <p><strong>Venue:</strong> ${exhibition.Venue}</p>
+                        `;
+                        
+                        exhibitionList.appendChild(exhibitionItem);
+                        console.log("added exhibition", exhibition);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading exhibitions:', error);
+                    const exhibitionList = document.getElementById('exhibitionList');
+                    exhibitionList.innerHTML = '<p>Error loading exhibitions. Please try again later.</p>';
+                });
+}
     // About Modal Functions
     function openAboutModal() {
         fetch('about.html')
@@ -252,12 +280,12 @@
                 document.querySelector('.about-modal-body').innerHTML = aboutContent.outerHTML;
                 document.getElementById('aboutModal').classList.add('active');
                 document.body.style.overflow = 'hidden';
-                
+                populateExhibitions();
                 // Wait a brief moment for DOM to update
-                setTimeout(() => {
+                // setTimeout(() => {
                     // Initialize the carousel
-                    initExhibitionCarousel();
-                }, 100);
+                    // initExhibitionCarousel();
+                // }, 100);
             })
             .catch(error => console.error('Error loading about content:', error));
     }
@@ -333,113 +361,7 @@
     });
     
     // Exhibition carousel function (copied from about.html)
-    function initExhibitionCarousel() {
-        console.log('Script started - from index.html');
-        
-        const carousel = document.querySelector('.exhibition-carousel');
-        const items = document.querySelectorAll('.exhibition-item');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        
-        console.log('Elements:', {carousel, items: items.length, prevBtn, nextBtn});
-        
-        if (!carousel || items.length === 0 || !prevBtn || !nextBtn) {
-            console.error('Carousel elements not found');
-            return;
-        }
-        
-        // Create controls container if it doesn't exist
-        const controlsContainer = document.querySelector('.exhibition-controls') || document.createElement('div');
-        if (!controlsContainer.classList.contains('exhibition-controls')) {
-            controlsContainer.classList.add('exhibition-controls');
-            // Move buttons into the controls container
-            prevBtn.parentNode.insertBefore(controlsContainer, prevBtn);
-            controlsContainer.appendChild(prevBtn);
-            controlsContainer.appendChild(nextBtn);
-        }
-        
-        // Set up carousel for one item at a time
-        let currentPosition = 0;
-        const totalItems = items.length;
-        
-        // Hide all items initially
-        items.forEach((item, index) => {
-            if (index !== 0) {
-                item.style.display = 'none';
-            }
-        });
-        
-        function updateCarousel() {
-            // Hide all items
-            items.forEach(item => item.style.display = 'none');
-            
-            // Show only current item
-            items[currentPosition].style.display = 'flex';
-            
-            // Update button states
-            prevBtn.disabled = currentPosition <= 0;
-            nextBtn.disabled = currentPosition >= totalItems - 1;
-            
-            // Add counter text
-            const counter = document.querySelector('.exhibition-counter') || document.createElement('div');
-            if (!counter.classList.contains('exhibition-counter')) {
-                counter.classList.add('exhibition-counter');
-                controlsContainer.parentNode.insertBefore(counter, controlsContainer);
-            }
-            counter.textContent = `${currentPosition + 1} / ${totalItems}`;
-            
-            console.log('Updated to position:', currentPosition);
-        }
-        
-        // Event listeners
-        prevBtn.addEventListener('click', function() {
-            console.log('Prev clicked');
-            if (currentPosition > 0) {
-                currentPosition--;
-                updateCarousel();
-            }
-        });
-        
-        nextBtn.addEventListener('click', function() {
-            console.log('Next clicked');
-            if (currentPosition < totalItems - 1) {
-                currentPosition++;
-                updateCarousel();
-            }
-        });
-        
-        // Add keyboard navigation
-        document.addEventListener('keydown', function(e) {
-            if (!document.getElementById('aboutModal').classList.contains('active')) {
-                return; // Only process keys when modal is open
-            }
-            
-            if (e.key === 'ArrowLeft') {
-                if (currentPosition > 0) {
-                    currentPosition--;
-                    updateCarousel();
-                }
-            } else if (e.key === 'ArrowRight') {
-                if (currentPosition < totalItems - 1) {
-                    currentPosition++;
-                    updateCarousel();
-                }
-            }
-        });
-        
-        // Style updates for single item view
-        carousel.style.justifyContent = 'center';
-        items.forEach(item => {
-            item.style.minWidth = '80%';
-            item.style.maxWidth = '600px';
-            item.style.height = 'auto';
-            item.style.minHeight = '200px';
-        });
-        
-        // Initialize
-        updateCarousel();
-        console.log('Carousel initialized');
-    }
+   
     </script>
 </body>
 </html> 

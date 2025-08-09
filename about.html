@@ -112,73 +112,38 @@
             cursor: not-allowed;
         }
         
-        /* Exhibition Carousel Styles */
+        /* Exhibition List Styles */
         .cv-section {
             margin-top: 40px;
         }
         
-        .exhibition-carousel {
-            display: flex;
-            overflow-x: auto;
+        .exhibition-list {
             margin-top: 20px;
-            position: relative;
-            width: 100%;
-            height: auto;
-            scroll-behavior: smooth;
-            padding-bottom: 20px; /* Add space for scrollbar */
-            scrollbar-width: thin;
-            scrollbar-color: #333 #111;
-            gap: 20px; /* Use gap instead of margin for more consistent spacing */
-        }
-        
-        /* Hide scrollbar for Chrome, Safari and Opera */
-        .exhibition-carousel::-webkit-scrollbar {
-            height: 8px;
-        }
-        
-        /* Handle */
-        .exhibition-carousel::-webkit-scrollbar-thumb {
-            background: #333;
-            border-radius: 4px;
-        }
-        
-        /* Handle on hover */
-        .exhibition-carousel::-webkit-scrollbar-thumb:hover {
-            background: #555;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
         
         .exhibition-item {
-            min-width: 300px;
             padding: 15px;
             border: 1px solid #333;
             background-color: rgba(0, 0, 0, 0.5);
             transition: all 0.3s ease;
-            flex-shrink: 0;
-            height: auto;
-            min-height: 180px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            box-sizing: border-box;
-            position: relative;
         }
         
         .exhibition-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 3px 10px rgba(255, 255, 255, 0.1);
         }
         
         .exhibition-item h4 {
             font-size: 1.1rem;
             margin: 0 0 10px 0;
-            flex: 0 0 auto;
         }
         
         .exhibition-item p {
             margin: 5px 0;
             font-size: 0.9rem;
-            display: block;
-            flex: 0 0 auto;
         }
         
         .exhibition-item strong {
@@ -189,56 +154,35 @@
         /* Add responsive styles */
         @media (max-width: 768px) {
             .exhibition-item {
-                min-width: 250px; /* Smaller width on mobile */
                 padding: 12px;
-                margin-right: 0; /* Remove right margin since we're using gap */
             }
             
-            .exhibition-carousel {
-                display: flex;
-                padding-bottom: 15px;
-                scroll-snap-type: x mandatory; /* Enable snap scrolling on mobile */
-                gap: 15px; /* Smaller gap on mobile */
-            }
-            
-            .exhibition-item {
-                scroll-snap-align: start; /* Items snap into position */
-            }
-            
-            .lazy-button {
-                padding: 6px 12px;
-                min-width: 80px;
+            .exhibition-list {
+                gap: 12px;
             }
         }
         
         /* Small screens */
         @media (max-width: 480px) {
             .exhibition-item {
-                min-width: 85vw; /* Take up most of the viewport width */
+                padding: 10px;
             }
             
-            .exhibition-carousel {
+            .exhibition-list {
                 gap: 10px;
-            }
-            
-            .lazy-button {
-                margin-bottom: 10px;
-                min-width: 70px;
-                font-size: 0.8rem;
             }
         }
         
         /* Large screens */
         @media (min-width: 1200px) {
             .exhibition-item {
-                min-width: 350px;
                 padding: 20px;
             }
             
-            .exhibition-carousel {
+            .exhibition-list {
                 max-width: 100%;
                 margin: 20px auto;
-                gap: 25px;
+                gap: 20px;
             }
         }
         
@@ -247,12 +191,6 @@
         .exhibition-item p {
             word-wrap: break-word;
             overflow-wrap: break-word;
-        }
-        
-        /* Improved UI feedback for carousel navigation */
-        .exhibition-item.active {
-            border-color: #fff;
-            background-color: rgba(20, 20, 20, 0.8);
         }
     </style>
 </head>
@@ -308,129 +246,8 @@
 
                     <div class="cv-section">
                         <h3>EXHIBITIONS</h3>
-                        <button class="lazy-button" id="prevBtn">Previous</button>
-                        <button class="lazy-button" id="nextBtn">Next</button>
-                        <div class="exhibition-carousel">
-                            <div class="exhibition-item">
-                                <h4>The New Pop Chilean Song</h4>
-                                <p><strong>Type:</strong> Solo show</p>
-                                <p><strong>Year:</strong> 2024</p>
-                                <p><strong>Venue:</strong> Colexion 33</p>
-                            </div>
-                            <div class="exhibition-item">
-                                <h4>The Immigrant Artist Biennial</h4>
-                                <p><strong>Type:</strong> Group show</p>
-                                <p><strong>Year:</strong> 2023 - 24</p>
-                                <p><strong>Venue:</strong> EFA Project space - New York (US)</p>
-                            </div>
-                            <div class="exhibition-item">
-                                <h4>Worms, a good business model</h4>
-                                <p><strong>Type:</strong> Group show</p>
-                                <p><strong>Year:</strong> 2023</p>
-                                <p><strong>Venue:</strong> Thesis show, Hunter College MFA. Hudson Gallery - New York (US)</p>
-                            </div>
-                            <div class="exhibition-item">
-                                <h4>Chilean Connection</h4>
-                                <p><strong>Type:</strong> Group show</p>
-                                <p><strong>Year:</strong> 2022</p>
-                                <p><strong>Venue:</strong> MONOPOL - Berlin (DE)</p>
-                            </div>
-                            <div class="exhibition-item">
-                                <h4>Beauty at the Swamp's Center</h4>
-                                <p><strong>Type:</strong> Group show</p>
-                                <p><strong>Year:</strong> 2021</p>
-                                <p><strong>Venue:</strong> Hunter College MFA - New York (US)</p>
-                            </div>
-                            <div class="exhibition-item">
-                                <h4>Hallway Paraphiliacs</h4>
-                                <p><strong>Type:</strong> Group show with photographer Martin Parsekian</p>
-                                <p><strong>Year:</strong> 2019</p>
-                                <p><strong>Venue:</strong> 91 Dobbin - New York (US)</p>
-                            </div>
-                            <div class="exhibition-item">
-                                <h4>Prayers</h4>
-                                <p><strong>Type:</strong> Individual Show</p>
-                                <p><strong>Year:</strong> 2019 - 2020</p>
-                                <p><strong>Venue:</strong> Corkin Gallery - Toronto (CA)</p>
-                            </div>
-                            <div class="exhibition-item">
-                                <h4>Karaoke</h4>
-                                <p><strong>Type:</strong> Group show with artist Tiago Madaleno</p>
-                                <p><strong>Year:</strong> 2018</p>
-                                <p><strong>Venue:</strong> Otiima Artworks - Porto (PT)</p>
-                            </div>
-                            <div class="exhibition-item">
-                                <h4>The Blue Mask</h4>
-                                <p><strong>Type:</strong> Individual show</p>
-                                <p><strong>Year:</strong> 2017</p>
-                                <p><strong>Venue:</strong> Hashtag Gallery - Toronto (CA)</p>
-                            </div>
-                            <div class="exhibition-item">
-                                <h4>Rainforests</h4>
-                                <p><strong>Type:</strong> Individual show</p>
-                                <p><strong>Year:</strong> 2015</p>
-                                <p><strong>Venue:</strong> Columbus Centre - Toronto (CA)</p>
-                            </div>
-                            <div class="exhibition-item">
-                                <h4>MAVI & Minera Escondida prize: Young Contemporary Art</h4>
-                                <p><strong>Type:</strong> Collective show</p>
-                                <p><strong>Year:</strong> 2015</p>
-                                <p><strong>Venue:</strong> Visual Arts Museum MAVI - Santiago (CL)</p>
-                            </div>
-                            <div class="exhibition-item">
-                                <h4>One More Year of Humor, and Then I'll Talk About War</h4>
-                                <p><strong>Type:</strong> Individual show</p>
-                                <p><strong>Year:</strong> 2014</p>
-                                <p><strong>Venue:</strong> Madhaus Gallery - Santiago (CL)</p>
-                            </div>
-                            <div class="exhibition-item">
-                                <h4>Pan/orama</h4>
-                                <p><strong>Type:</strong> Collective show</p>
-                                <p><strong>Year:</strong> 2014</p>
-                                <p><strong>Venue:</strong> Daniels Spectrum Centre - Toronto (CA)</p>
-                            </div>
-                            <div class="exhibition-item">
-                                <h4>The Sun</h4>
-                                <p><strong>Type:</strong> Individual show</p>
-                                <p><strong>Year:</strong> 2014</p>
-                                <p><strong>Venue:</strong> TORP Inc. Showroom - Toronto (CA)</p>
-                            </div>
-                            <div class="exhibition-item">
-                                <h4>Wild Trash</h4>
-                                <p><strong>Type:</strong> Individual show</p>
-                                <p><strong>Year:</strong> 2013</p>
-                                <p><strong>Venue:</strong> Local Arte Contemporáneo - Santiago (CL)</p>
-                            </div>
-                            <div class="exhibition-item">
-                                <h4>Forårsudstilling 13: Spring Exhibition 13</h4>
-                                <p><strong>Type:</strong> Collective show</p>
-                                <p><strong>Year:</strong> 2013</p>
-                                <p><strong>Venue:</strong> Kunsthal Charlottenborg - Copenhagen (DK)</p>
-                            </div>
-                            <div class="exhibition-item">
-                                <h4>Paintings of the Chilean Patagonian Rainforest, Plein Air and in Big Format</h4>
-                                <p><strong>Type:</strong> Individual show</p>
-                                <p><strong>Year:</strong> 2012</p>
-                                <p><strong>Venue:</strong> MACCHINA Gallery - Santiago (CL)</p>
-                            </div>
-                            <div class="exhibition-item">
-                                <h4>Paintings of the Chilean Forest</h4>
-                                <p><strong>Type:</strong> Individual show</p>
-                                <p><strong>Year:</strong> 2012</p>
-                                <p><strong>Venue:</strong> Citi Gallery - Santiago (CL)</p>
-                            </div>
-                            <div class="exhibition-item">
-                                <h4>Funkhaus Colective</h4>
-                                <p><strong>Type:</strong> Collective show</p>
-                                <p><strong>Year:</strong> 2011</p>
-                                <p><strong>Venue:</strong> Funkhaus Berlin - Berlin (DE)</p>
-                            </div>
-                            <div class="exhibition-item">
-                                <h4>Phenomenological Investigations, on the Impressionist Method of Claude Monet</h4>
-                                <p><strong>Type:</strong> Individual show</p>
-                                <p><strong>Year:</strong> 2011</p>
-                                <p><strong>Venue:</strong> Loreto Gallery - Santiago (CL)</p>
-                            </div>
+                        <div class="exhibition-list" id="exhibitionList">
+                            <!-- Exhibitions will be loaded dynamically from JSON -->
                         </div>
                     </div>
                     
@@ -457,90 +274,33 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const carousel = document.querySelector('.exhibition-carousel');
-            const items = document.querySelectorAll('.exhibition-item');
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-            
-            // Set initial active item
-            if (items.length > 0) {
-                items[0].classList.add('active');
-            }
-            
-            // Calculate scroll amount based on item width
-            function getScrollAmount() {
-                if (items.length > 0) {
-                    const item = items[0];
-                    return item.offsetWidth + parseInt(getComputedStyle(item).marginRight);
-                }
-                return 320; // Default scroll amount
-            }
-            
-            // Navigation functions
-            function scrollPrev() {
-                carousel.scrollBy({
-                    left: -getScrollAmount(),
-                    behavior: 'smooth'
+            // Load exhibitions from JSON file
+            console.log("loading exhibitions");
+            fetch('exhibitions.json')
+                .then(response => response.json())
+                .then(data => {
+                    const exhibitionList = document.getElementById('exhibitionList');
+                    
+                    data.exhibitions.forEach(exhibition => {
+                        const exhibitionItem = document.createElement('div');
+                        exhibitionItem.className = 'exhibition-item';
+                        
+                        exhibitionItem.innerHTML = `
+                            <h4>${exhibition.title}</h4>
+                            <p><strong>Type:</strong> ${exhibition.Type}</p>
+                            <p><strong>Year:</strong> ${exhibition.Year}</p>
+                            <p><strong>Venue:</strong> ${exhibition.Venue}</p>
+                        `;
+                        
+                        exhibitionList.appendChild(exhibitionItem);
+                        console.log("added exhibition", exhibition);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading exhibitions:', error);
+                    const exhibitionList = document.getElementById('exhibitionList');
+                    exhibitionList.innerHTML = '<p>Error loading exhibitions. Please try again later.</p>';
                 });
-                updateActiveItem();
-            }
-            
-            function scrollNext() {
-                carousel.scrollBy({
-                    left: getScrollAmount(),
-                    behavior: 'smooth'
-                });
-                updateActiveItem();
-            }
-            
-            // Update active item based on scroll position
-            function updateActiveItem() {
-                const scrollLeft = carousel.scrollLeft;
-                let activeIndex = 0;
-                
-                items.forEach((item, index) => {
-                    item.classList.remove('active');
-                    const itemLeft = item.offsetLeft - carousel.offsetLeft;
-                    if (itemLeft <= scrollLeft + 10) {
-                        activeIndex = index;
-                    }
-                });
-                
-                if (items[activeIndex]) {
-                    items[activeIndex].classList.add('active');
-                }
-            }
-            
-            // Add event listeners
-            prevBtn.addEventListener('click', scrollPrev);
-            nextBtn.addEventListener('click', scrollNext);
-            
-            // Update active item on scroll
-            carousel.addEventListener('scroll', function() {
-                updateActiveItem();
-            });
-            
-            // Handle touch events for mobile
-            let touchStartX = 0;
-            let touchEndX = 0;
-            
-            carousel.addEventListener('touchstart', function(e) {
-                touchStartX = e.changedTouches[0].screenX;
-            });
-            
-            carousel.addEventListener('touchend', function(e) {
-                touchEndX = e.changedTouches[0].screenX;
-                handleSwipe();
-            });
-            
-            function handleSwipe() {
-                const threshold = 50;
-                if (touchEndX < touchStartX - threshold) {
-                    scrollNext();
-                } else if (touchEndX > touchStartX + threshold) {
-                    scrollPrev();
-                }
-            }
         });
     </script>
 </body>
